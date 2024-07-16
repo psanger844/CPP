@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 01:59:30 by psanger           #+#    #+#             */
-/*   Updated: 2024/07/05 01:59:32 by psanger          ###   ########.fr       */
+/*   Updated: 2024/07/16 16:58:26 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,20 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter command: ";
-		std::cin >> command;
-		std::cout << std::endl;
-		if (command == "ADD")
-			phonebook.addContact();
+		std::getline(std::cin, command);
+		if (std::cin.eof())
+			return (1);
+		if (command == "ADD"){
+			if (phonebook.addContact() == 1)
+				return (1);
+		}
 		else if (command == "SEARCH")
-			phonebook.searchContact();
+		{
+			if (phonebook.searchContact() == 1)
+				return (1);
+		}
 		else if (command == "EXIT")
-			phonebook.exitPhonebook();
+			return (0);
 		else
 			std::cout << "Command not found\n Please enter ADD, SEARCH or EXIT" << std::endl;
 	}

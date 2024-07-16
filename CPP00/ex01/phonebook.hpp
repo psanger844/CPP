@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 01:12:17 by psanger           #+#    #+#             */
-/*   Updated: 2024/07/05 01:52:17 by psanger          ###   ########.fr       */
+/*   Updated: 2024/07/16 16:57:35 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <cctype>
+#include <iomanip>
+
 #include "contact.hpp"
 
 class phonebook
@@ -22,12 +25,11 @@ private:
 	int 	index;
 	contact	contacts[8];
 public:
-	phonebook(/* args */);
+	phonebook();
 	~phonebook();
 
-	void addContact();
-	void searchContact();
-	void exitPhonebook();
+	int	addContact();
+	int searchContact();
 };
 
 
