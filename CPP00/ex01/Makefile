@@ -1,29 +1,37 @@
-NAME			=	phonebook
-CXX				=	c++
-CXXFLAGS		=	-Wall -Wextra -Werror -std=c++98
+NAME		= phonebook
+CXX			= c++
+# CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -std=c++98
 
-SRC				=	main.cpp \
-					contact.cpp \
-					phonebook.cpp \
+SRCS		=	main.cpp \
+				contact.cpp \
+				phonebook.cpp
+
+OBJS		= $(SRCS:.cpp=.o)
 
 
-OBJS			=	$(SRC: .cc=.o)
+RED			= \033[0;31m
+GREEN		= \033[0;32m
+CRYAN		= \033[0;36m
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-		@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS)
+	@echo "$(GREEN)Compiling $(NAME)..."
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)$(NAME) compiled successfully!$(CRYAN)"
 
 %.o: %.cpp
-		@$(CXX) $(CXXFLAGS) -c $< -o $@
-
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@echo "$(RED)Cleaning $(NAME) object files..."
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "$(RED)Cleaning $(NAME)..."
+	@rm -f $(NAME)
 
 re: fclean all
 
-.POHNY: fclean clean re all
+.PHONY: clean fclean re all
