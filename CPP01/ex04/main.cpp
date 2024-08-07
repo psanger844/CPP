@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:34:20 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/07 17:16:44 by psanger          ###   ########.fr       */
+/*   Updated: 2024/08/07 17:21:17 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@ void	replaceStrings(std::string line, std::string s1, std::string s2, std::ofstr
 	pos = line.find(s1);
 	if (pos != std::string::npos)
 	{
-		outfile << line;
-		outfile << pos << std::endl;
 		outfile << line.substr(0, pos);
 		outfile << s2;
-		outfile << line.substr(pos + s2.length() - 1, line.length());
+		replaceStrings(line.substr(pos + s2.length() - 2, line.length()), s1, s2, outfile);
 	}
 	else
-	{
 		outfile << line;
-	}
 }
 
 int main(int argc, char **argv)
@@ -56,11 +52,6 @@ int main(int argc, char **argv)
 	}
 
 	std::string line;
-
-	// while (std::getline(infile, line))
-	// {
-	// 	std::cout << line << std::endl;
-	// }
 
 	while (std::getline(infile, line))
 		replaceStrings(line + "\n", s1, s2, outfile);
