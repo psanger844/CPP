@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 18:14:30 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/09 15:25:31 by psanger          ###   ########.fr       */
+/*   Created: 2024/08/09 15:17:02 by psanger           #+#    #+#             */
+/*   Updated: 2024/08/09 15:17:04 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+
+class Harl
 {
-	Harl harl;
+private:
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
+public:
+	void complain( std::string level );
+	Harl();
+	~Harl();
+};
 
-	harl.complain("DEBUG");
-
-	harl.complain("INFO");
-
-	harl.complain("WARNING");
-
-	harl.complain("ERROR");
-
-	harl.complain("TEST");
-	
-	return (0);
-}
+typedef void (Harl::*t_func) ( void );

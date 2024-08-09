@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 18:14:30 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/09 15:25:31 by psanger          ###   ########.fr       */
+/*   Created: 2024/07/16 17:19:06 by psanger           #+#    #+#             */
+/*   Updated: 2024/07/16 17:25:29 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "Zombie.hpp"
 
-int main()
+void announce(void)
 {
-	Harl harl;
-
-	harl.complain("DEBUG");
-
-	harl.complain("INFO");
-
-	harl.complain("WARNING");
-
-	harl.complain("ERROR");
-
-	harl.complain("TEST");
-	
-	return (0);
+	std::cout << this->name + "BraiiiiiiinnnzzzZ..." << std::endl;
 }

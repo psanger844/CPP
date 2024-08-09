@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 17:37:21 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/09 15:25:08 by psanger          ###   ########.fr       */
+/*   Created: 2024/08/09 15:17:20 by psanger           #+#    #+#             */
+/*   Updated: 2024/08/09 15:28:18 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,22 @@ void Harl::error( void )
 
 void	Harl::complain( std::string level )
 {
-	t_func		functions[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	levelNum[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
-	for (size_t i = 0; i < 4; i++)
+	int i = 0;
+	while (level != levelNum[i] && i <= 3)
+		i++;
+	switch (i)
 	{
-		if (levelNum[i] == level)
-		{
-			(this->*functions[i])();
-			return ;
-		}
+		case 0:
+			this->debug();
+		case 1:
+			this->info();
+		case 2:
+			this->warning();
+		case 3:
+			this->error();
+			break;
+		default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
-	std::cout << "Level not found!!\n";
 }

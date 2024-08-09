@@ -5,26 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 18:14:30 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/09 15:25:31 by psanger          ###   ########.fr       */
+/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
+/*   Updated: 2024/07/16 17:16:53 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
-
 int main()
 {
-	Harl harl;
-
-	harl.complain("DEBUG");
-
-	harl.complain("INFO");
-
-	harl.complain("WARNING");
-
-	harl.complain("ERROR");
-
-	harl.complain("TEST");
 	
-	return (0);
 }
