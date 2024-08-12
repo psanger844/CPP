@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 16:17:33 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/12 18:17:53 by psanger          ###   ########.fr       */
+/*   Created: 2024/08/09 16:46:29 by psanger           #+#    #+#             */
+/*   Updated: 2024/08/12 19:25:56 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,24 @@ Fixed::Fixed( void )
 	this->fixedPointNum = 0;
 }
 
+Fixed::Fixed( const int num_int )
+{
+	this->fixedPointNum = num_int << this->fractionalBits;
+	std::cout << this->fixedPointNum << std::endl;
+	std::cout << "Int constructor called\n";
+}
+
+Fixed::Fixed( const float num_float )
+{
+	this->fixedPointNum = std::roundf(num_float * (1 << this->fractionalBits));
+	std::cout << this->fixedPointNum << std::endl;
+	std::cout << "Float constructor called\n";
+}
 
 Fixed::Fixed( const Fixed& other )
 {
 	std::cout << "Copy constructor called\n";
 	this->setRawBits(other.getRawBits());
-	// this->fixedPointNum = other.fixedPointNum;
 }
 
 Fixed& Fixed::operator=( const Fixed& other )
@@ -42,7 +54,7 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called\n";
+	// std::cout << "getRawBits member function called\n";
 	return (this->fixedPointNum);
 }
 
@@ -50,3 +62,23 @@ void Fixed::setRawBits( int const raw )
 {
 	this->fixedPointNum = raw;
 }
+
+
+float Fixed::toFloat( void ) const
+{
+	float num_float = (float)this->getRawBits() / (1 << this->fractionalBits);
+	return (num_float);
+}
+
+
+int	Fixed::toInt( void ) const
+{
+	return (this->fixedPointNum >> this->fractionalBits);
+}
+
+
+std::ostream & operator<<( std::ostream & o, Fixed const & i ) {
+	o << i.toFloat();
+	return o;
+}
+
