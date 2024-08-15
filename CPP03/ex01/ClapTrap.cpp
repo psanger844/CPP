@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:19:23 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/14 17:43:03 by psanger          ###   ########.fr       */
+/*   Updated: 2024/08/14 19:04:58 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ ClapTrap::ClapTrap( std::string name)
 	std::cout << "Constructor : ClapTrap \"" << this->name << "\"\n";
 }
 
+ClapTrap::ClapTrap() : name("name") {};
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor : ClapTrap \"" << this->name << "\"\n";
@@ -32,7 +34,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	this->hp = other.hp;
 	this->ep = other.ep;
 	this->dp = other.dp;
-	std::cout << "Copy constructer called\n";
+	std::cout << "ClapTrap copy constructer called\n";
 	return ;
 }
 
@@ -42,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	this->hp = other.hp;
 	this->ep = other.ep;
 	this->dp = other.dp;
-	std::cout << "Copy assignment operator called\n";
+	std::cout << "ScavTrap copy assignment operator called\n";
 	return (*this);
 }
 
@@ -53,7 +55,7 @@ void ClapTrap::attack(const std::string& target)
 		return ;
 	}
 	this->ep--;
-	std::cout << target << " got attacked by  " << this->name << "with " << this->dp  << " damage \n";
+	std::cout << target << " got attacked by  " << this->name << " with " << this->dp  << " damage \n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
