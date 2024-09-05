@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 17:39:39 by psanger          ###   ########.fr       */
+/*   Created: 2024/08/14 17:50:58 by psanger           #+#    #+#             */
+/*   Updated: 2024/08/14 19:01:54 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-int main(int argc, char **argv, char **envp)
+#pragma once
+
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	Zombie pascal("pascal");
-	Zombie *jan = newZombie("jan");
-	pascal.announce();
-	randomChump("Maxus");
-	delete (jan);
-}
+private:
+
+public:
+	ScavTrap(std::string name);
+	~ScavTrap();
+	ScavTrap(const ScavTrap& other);
+	ScavTrap& operator=(const ScavTrap& other);
+
+
+	void attack(const std::string& target);
+	void guardGate();
+};

@@ -5,18 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 17:39:39 by psanger          ###   ########.fr       */
+/*   Created: 2024/09/04 19:00:11 by psanger           #+#    #+#             */
+/*   Updated: 2024/09/05 17:58:24 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-int main(int argc, char **argv, char **envp)
+int main()
 {
-	Zombie pascal("pascal");
-	Zombie *jan = newZombie("jan");
-	pascal.announce();
-	randomChump("Maxus");
-	delete (jan);
+	std::string str = "HI THIS IS BRAIN!";
+	std::string *str1 = &str;
+	std::string &str2 = str;
+
+	std::cout << &str << std::endl;
+	std::cout << str1 << std::endl;
+	std::cout << &str2 << std::endl;
+
+	std::cout << str << std::endl;
+	std::cout << *str1 << std::endl;
+	std::cout << str2 << std::endl;
 }

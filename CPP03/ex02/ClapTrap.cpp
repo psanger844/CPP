@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:19:23 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/15 16:58:41 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/04 18:34:05 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	this->ep--;
-	this->hp += amount;
+	if (amount > UINT_MAX - this->hp)
+		this->hp = UINT_MAX;
+	else
+		this->hp += amount;
 	std::cout << this->name << " Healing..........\n";
 	std::cout << this->name << " heals " << amount << " hit points\n";
 }

@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 17:39:39 by psanger          ###   ########.fr       */
+/*   Created: 2024/08/13 19:16:41 by psanger           #+#    #+#             */
+/*   Updated: 2024/08/14 18:58:39 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-int main(int argc, char **argv, char **envp)
+#include <iostream>
+
+class ClapTrap
 {
-	Zombie pascal("pascal");
-	Zombie *jan = newZombie("jan");
-	pascal.announce();
-	randomChump("Maxus");
-	delete (jan);
-}
+protected:
+	std::string name;
+	int			hp;
+	int			ep;
+	int			dp;
+
+public:
+	ClapTrap();
+	ClapTrap(std::string name);
+	~ClapTrap();
+	ClapTrap(const ClapTrap& other);
+	ClapTrap& operator=(const ClapTrap& other);
+
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
+};
+
+

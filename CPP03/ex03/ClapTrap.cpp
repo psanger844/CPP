@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:19:23 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/04 18:32:38 by psanger          ###   ########.fr       */
+/*   Updated: 2024/08/15 16:58:41 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ ClapTrap::ClapTrap( std::string name)
 	std::cout << "Constructor : ClapTrap \"" << this->name << "\"\n";
 }
 
+ClapTrap::ClapTrap() : name("name") {};
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor : ClapTrap \"" << this->name << "\"\n";
@@ -32,7 +34,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	this->hp = other.hp;
 	this->ep = other.ep;
 	this->dp = other.dp;
-	std::cout << "Copy constructer called\n";
+	std::cout << "ClapTrap copy constructer called\n";
 	return ;
 }
 
@@ -42,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	this->hp = other.hp;
 	this->ep = other.ep;
 	this->dp = other.dp;
-	std::cout << "Copy assignment operator called\n";
+	std::cout << "ScavTrap copy assignment operator called\n";
 	return (*this);
 }
 
@@ -53,7 +55,7 @@ void ClapTrap::attack(const std::string& target)
 		return ;
 	}
 	this->ep--;
-	std::cout << target << " got attacked by  " << this->name << "with " << this->dp  << " damage \n";
+	std::cout << target << " got attacked by  " << this->name << " with " << this->dp  << " damage \n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -66,17 +68,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	this->ep--;
-	if (amount > UINT_MAX - this->hp)
-		this->hp = UINT_MAX;
-	else
-		this->hp += amount;
+	this->hp += amount;
 	std::cout << this->name << " Healing..........\n";
 	std::cout << this->name << " heals " << amount << " hit points\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount > (unsigned)this->hp)
+	if (amount >= (unsigned)this->hp)
 	{
 		this->hp = 0;
 		std::cout << this->name << " got hit by a big swing to the head... he died\n";

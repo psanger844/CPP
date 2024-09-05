@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 20:52:43 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/03 20:52:52 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/03 21:20:41 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,3 +17,5 @@ Zombie* newZombie( std::string name )
 	Zombie *newZombie = new Zombie(name);
 	return (newZombie);
 }
+
+

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 17:39:39 by psanger          ###   ########.fr       */
+/*   Created: 2024/09/05 18:06:40 by psanger           #+#    #+#             */
+/*   Updated: 2024/09/05 18:14:52 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-int main(int argc, char **argv, char **envp)
+#include <iostream>
+
+class HumanA
 {
-	Zombie pascal("pascal");
-	Zombie *jan = newZombie("jan");
-	pascal.announce();
-	randomChump("Maxus");
-	delete (jan);
-}
+private:
+	std::string _name;
+	std::string _weapon;
+public:
+	HumanA();
+	HumanA(std::string name, std::string weapon);
+	~HumanA();
+	void attack();
+};
+
+

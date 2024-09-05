@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 17:39:39 by psanger          ###   ########.fr       */
+/*   Created: 2024/08/15 15:29:51 by psanger           #+#    #+#             */
+/*   Updated: 2024/08/15 16:50:39 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-int main(int argc, char **argv, char **envp)
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	Zombie pascal("pascal");
-	Zombie *jan = newZombie("jan");
-	pascal.announce();
-	randomChump("Maxus");
-	delete (jan);
-}
+private:
+
+public:
+	FragTrap(std::string name);
+	~FragTrap();
+	FragTrap(const FragTrap& other);
+	FragTrap& operator=(const FragTrap& other);
+
+	void highFivesGuys(void);
+};

@@ -5,18 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 17:16:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 17:39:39 by psanger          ###   ########.fr       */
+/*   Created: 2024/09/05 18:44:00 by psanger           #+#    #+#             */
+/*   Updated: 2024/09/05 18:44:25 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main(int argc, char **argv, char **envp)
+int main()
 {
-	Zombie pascal("pascal");
-	Zombie *jan = newZombie("jan");
-	pascal.announce();
-	randomChump("Maxus");
-	delete (jan);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }
