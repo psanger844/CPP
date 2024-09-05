@@ -1,6 +1,6 @@
 NAME		= moarBraiiinnnzzzzZ
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror
+# CXXFLAGS	= -Wall -Wextra -Werror
 
 SRCS		=	main.cpp \
 				Weapon.cpp \

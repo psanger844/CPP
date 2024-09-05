@@ -6,11 +6,13 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 18:44:00 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 18:44:25 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/05 20:02:48 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
@@ -29,5 +31,6 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
+
 	return 0;
 }
