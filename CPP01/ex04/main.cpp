@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:34:20 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/11 20:49:19 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/11 21:03:58 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int main(int argc, char **argv)
 		buffer = buffer + "\n";
 		buffer = buffer + line;
 	}
-	std::cout << buffer << std::endl;
-	replaceStringRe(buffer + "\n", s1, s2, outfile);
+	replaceStringRe(buffer, s1, s2, outfile);
 
 	infile.close();
 	outfile.close();
