@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:34:20 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/11 21:03:58 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/11 21:10:54 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	replaceStringRe(std::string buffer, std::string s1, std::string s2, std::of
 {
 	size_t pos = 0;
 	pos = buffer.find(s1);
-	if (pos != std::string::npos)
+	if (pos != std::string::npos && !s1.empty())
 	{
 		outfile << buffer.substr(0, pos);
 		outfile << s2;
