@@ -6,24 +6,24 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:34:20 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/07 17:21:17 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/11 20:49:19 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "replace.hpp"
 
-void	replaceStrings(std::string line, std::string s1, std::string s2, std::ofstream &outfile)
+void	replaceStringRe(std::string buffer, std::string s1, std::string s2, std::ofstream &outfile)
 {
 	size_t pos = 0;
-	pos = line.find(s1);
+	pos = buffer.find(s1);
 	if (pos != std::string::npos)
 	{
-		outfile << line.substr(0, pos);
+		outfile << buffer.substr(0, pos);
 		outfile << s2;
-		replaceStrings(line.substr(pos + s2.length() - 2, line.length()), s1, s2, outfile);
+		replaceStringRe(buffer.substr(pos + s1.length(), buffer.length()), s1, s2, outfile);
 	}
 	else
-		outfile << line;
+		outfile << buffer;
 }
 
 int main(int argc, char **argv)
@@ -52,9 +52,18 @@ int main(int argc, char **argv)
 	}
 
 	std::string line;
+	std::string buffer;
 
+
+	std::getline(infile, line);
+	buffer = line;
 	while (std::getline(infile, line))
-		replaceStrings(line + "\n", s1, s2, outfile);
+	{
+		buffer = buffer + "\n";
+		buffer = buffer + line;
+	}
+	std::cout << buffer << std::endl;
+	replaceStringRe(buffer + "\n", s1, s2, outfile);
 
 	infile.close();
 	outfile.close();
