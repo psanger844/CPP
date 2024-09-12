@@ -6,16 +6,16 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 18:46:02 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 19:42:59 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/12 22:21:02 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-// Weapon::Weapon()
-// {
+Weapon::Weapon()
+{
 
-// }
+}
 
 Weapon::Weapon(std::string type)
 {
@@ -27,7 +27,7 @@ Weapon::~Weapon()
 
 }
 
-std::string& Weapon::getType()
+const std::string& Weapon::getType()
 {
 	return (this->_type);
 }

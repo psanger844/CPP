@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:16:50 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/09 15:29:06 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/11 21:06:31 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int main()
 	harl.complain("ERROR");
 
 	harl.complain("TEST");
-	
+
 	return (0);
 }

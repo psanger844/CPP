@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 17:37:21 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/09 15:25:08 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/11 21:05:58 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void Harl::error( void )
 void	Harl::complain( std::string level )
 {
 	t_func		functions[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string	levelNum[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
-	for (size_t i = 0; i < 4; i++)
+	std::string	levelNum[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
 	{
 		if (levelNum[i] == level)
 		{

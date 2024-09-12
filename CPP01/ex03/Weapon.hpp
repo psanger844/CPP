@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 18:02:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/05 19:01:31 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/12 22:19:50 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	Weapon();
 	Weapon(std::string type);
 	~Weapon();
-	std::string &getType();
+	const std::string &getType();
 	void setType(std::string type);
 };
 
