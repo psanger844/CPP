@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:51:36 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/15 16:58:25 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/04 18:22:21 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int main()
 	ClapTrap Jan("Jan");
 	ClapTrap Steven("Steven");
 	ScavTrap Pasi("Pasi");
-	ScavTrap test=Pasi;
-	FragTrap Frag("Frag");
+	ScavTrap test("test");
+
+	test = Pasi;
+
+	FragTrap Frag("Hallo");
 
 	Frag.highFivesGuys();
 	Frag.attack("test");

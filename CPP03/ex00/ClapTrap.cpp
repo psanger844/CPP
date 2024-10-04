@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:19:23 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/04 18:32:38 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/04 18:04:31 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	this->name = other.name;
-	this->hp = other.hp;
-	this->ep = other.ep;
-	this->dp = other.dp;
-	std::cout << "Copy constructer called\n";
+	*this = other;
+	std::cout << "ClapTrap Copy constructer called\n";
 	return ;
 }
 
@@ -53,16 +50,17 @@ void ClapTrap::attack(const std::string& target)
 		return ;
 	}
 	this->ep--;
-	std::cout << target << " got attacked by  " << this->name << "with " << this->dp  << " damage \n";
+	std::cout << target << " got attacked by  " << this->name << " with " << this->dp  << " damage \n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->hp < 1) {
 		std::cout << this->name << "is dead\n";
+		return ;
 	}
 	if (this->ep < 1) {
-		std::cout << "No more energy left, you gotta kill your enemy before he kills you\n";
+		std::cout << "No more energy left\n";
 		return ;
 	}
 	this->ep--;

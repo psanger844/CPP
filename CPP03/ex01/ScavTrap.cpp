@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:48:35 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/14 19:04:26 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/04 18:16:58 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	this->name = other.name;
-	this->hp = other.hp;
-	this->ep = other.ep;
-	this->dp = other.dp;
+	*this = other;
 	std::cout << "ScavTrap copy constructer called\n";
-	return ;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
@@ -57,4 +53,9 @@ void ScavTrap::attack(const std::string& target)
 	}
 	this->ep--;
 	std::cout << target << " got hit by " << this->name << " he dealt " << this->dp  << " damage\n";
+}
+
+void ScavTrap::guardGate()
+{
+	std::cout << "ScavTrap " << name << " is now a Gate keeper" << std::endl;
 }

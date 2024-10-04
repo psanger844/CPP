@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:19:23 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/04 18:34:05 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/04 18:17:56 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	this->hp = other.hp;
 	this->ep = other.ep;
 	this->dp = other.dp;
-	std::cout << "ScavTrap copy assignment operator called\n";
+	std::cout << "ClapTrap copy assignment operator called\n";
 	return (*this);
 }
 

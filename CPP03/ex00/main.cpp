@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 19:51:36 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/13 20:01:13 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/04 17:55:11 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 	ClapTrap Jan("Jan");
 	ClapTrap Steven("Steven");
 
-	Jan.attack("Steven\n");
+	Jan.attack("Steven");
 	Steven.takeDamage(2);
 	Steven.attack("Jan");
 	Jan.takeDamage(8);
