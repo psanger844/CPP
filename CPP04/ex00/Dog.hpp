@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:01:21 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:32:17 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:16:53 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ private:
 	const std::string _sound;
 public:
 	Dog();
-	Dog(Dog &other);
-	Dog operator= (Dog &other);
+	Dog(const Dog &other);
+	Dog& operator=(const Dog &other);
 	~Dog();
 	void	makeSound() const;
 };
 
-
-#endif // __DOG_H__
+#endif

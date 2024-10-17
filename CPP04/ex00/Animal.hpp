@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:57:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/12 21:33:50 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:15:45 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ protected:
 	std::string type;
 public:
 	Animal();
-	Animal(Animal &other);
-	Animal operator=(Animal &other);
+	Animal(const Animal &other);
+	Animal& operator=(const Animal &other);
 	virtual ~Animal();
 	void	setType(std::string type);
 	std::string getType() const;

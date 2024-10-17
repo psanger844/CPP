@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 21:49:50 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:42:21 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:18:03 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ protected:
 	std::string _type;
 public:
 	WrongAnimal();
+	WrongAnimal(const WrongAnimal &other);
+	WrongAnimal& operator=(const WrongAnimal &other);
 	virtual ~WrongAnimal();
-	WrongAnimal(WrongAnimal &other);
-	WrongAnimal operator=(WrongAnimal &other);
-	void	setType(std::string _type);
+	void	setType(std::string type);
 	std::string getType() const;
-	virtual void	makeSound() const;
+	void	makeSound() const;
 };
 
 
-#endif // __WRONGANIMAL_H__
+#endif

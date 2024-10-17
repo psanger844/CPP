@@ -6,26 +6,30 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:45:41 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:32:32 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:18:19 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : _wrongSound("not Miau")
+WrongCat::WrongCat() : _wrongSound("not miau")
 {
 	std::cout << "WrongCat got created\n";
 	WrongAnimal::setType("WrongCat");
 }
 
-WrongCat::WrongCat(WrongCat &other): _wrongSound("not Miau")
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other), _wrongSound(other._wrongSound)
 {
-	*this = other;
+	std::cout << "Copy constructor called\n";
 }
 
-WrongCat WrongCat::operator= (WrongCat &other)
+WrongCat& WrongCat::operator=(const WrongCat &other)
 {
-	return (*this);
+	std::cout << "Assignment operator called\n";
+	if (this != &other) {
+		WrongAnimal::operator=(other);
+	}
+	return *this;
 }
 
 WrongCat::~WrongCat()

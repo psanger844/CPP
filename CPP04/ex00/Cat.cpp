@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:06:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:32:05 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:16:10 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ Cat::Cat() : _sound("miau")
 	Animal::setType("Cat");
 }
 
-Cat::Cat(Cat &other) : _sound("miau")
+Cat::Cat(const Cat &other) : Animal(other), _sound(other._sound)
 {
-	*this = other;
+	std::cout << "Copy constructor called\n";
 }
 
-Cat Cat::operator= (Cat &other)
+Cat& Cat::operator=(const Cat &other)
 {
-	return (*this);
+	std::cout << "Assignment operator called\n";
+	if (this != &other) {
+		Animal::operator=(other);
+	}
+	return *this;
 }
 
 Cat::~Cat()

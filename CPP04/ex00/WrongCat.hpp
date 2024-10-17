@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:42:51 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:41:38 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:18:36 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ private:
 	const std::string _wrongSound;
 public:
 	WrongCat();
-	WrongCat(WrongCat &other);
-	WrongCat operator= (WrongCat &other);
+	WrongCat(const WrongCat &other);
+	WrongCat& operator=(const WrongCat &other);
 	~WrongCat();
 	void	makeSound() const;
 };
 
 
-#endif // __WRONGCAT_H__
+#endif
