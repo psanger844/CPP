@@ -1,4 +1,4 @@
-NAME		= worldOnFire
+NAME		= abstract
 CXX			= c++
 # CXXFLAGS	= -Wall -Wextra -Werror
 
