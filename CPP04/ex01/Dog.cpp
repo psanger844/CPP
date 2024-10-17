@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:39:45 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:32:23 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/02 21:58:05 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,35 @@
 Dog::Dog() : _sound("bark")
 {
 	std::cout << "Dog got created\n";
+	this->brain = new Brain;
 	Animal::setType("Dog");
 }
 
-Dog::Dog(Dog &other) : _sound("bark")
-{
-	*this = other;
+Dog::Dog(Dog &other) : _sound(other._sound) {
+	if (other.brain != nullptr) {
+		this->brain = new Brain(*other.brain);
+	} else {
+		this->brain = nullptr;
+	}
 }
 
 Dog Dog::operator= (Dog &other)
 {
+	if (this == &other)
+		return (*this);
+	if (this->brain) {
+		delete this->brain;
+	}
+	if (other.brain)
+		this->brain = new Brain(*other.brain);
+	else
+		this->brain = nullptr;
 	return (*this);
 }
 
 Dog::~Dog()
 {
+	delete this->brain;
 	std::cout << "Dog got destroyed\n";
 }
 

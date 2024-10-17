@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:01:38 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/12 21:05:02 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/23 20:31:39 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ private:
 	const std::string _sound;
 public:
 	Cat();
+	Cat(Cat &other);
+	Cat operator= (Cat &other);
 	~Cat();
-	void	makeSound();
+	void	makeSound() const;
 };
 
 
-#endif // __CAT_H__
+#endif

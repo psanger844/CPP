@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 20:06:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:32:05 by psanger          ###   ########.fr       */
+/*   Created: 2024/09/12 20:01:38 by psanger           #+#    #+#             */
+/*   Updated: 2024/10/01 22:20:03 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef __CAT_H__
+#define __CAT_H__
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat::Cat() : _sound("miau")
+class Cat : public Animal
 {
-	std::cout << "Cat got created\n";
-	Animal::setType("Cat");
-}
+private:
+	const std::string _sound;
+	Brain *brain;
+public:
+	Cat();
+	Cat(Cat &other);
+	Cat operator= (Cat &other);
+	~Cat();
+	void	makeSound() const;
+	void setCatsBrain(std::string info);
+	std::string getCatsBrain( void );
+};
 
-Cat::Cat(Cat &other) : _sound("miau")
-{
-	*this = other;
-}
 
-Cat Cat::operator= (Cat &other)
-{
-	return (*this);
-}
-
-Cat::~Cat()
-{
-	std::cout << "Cat got destroyed\n";
-}
-
-void Cat::makeSound() const
-{
-	std::cout << this->_sound << std::endl;
-}
+#endif

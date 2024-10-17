@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:46:29 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/13 16:19:09 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/18 22:20:25 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ Fixed::Fixed( void )
 Fixed::Fixed( const int num_int )
 {
 	this->fixedPointNum = num_int << this->fractionalBits;
+	// this->fixedPointNum = num_int * 256;
 	// std::cout << "Int constructor called\n";
 }
 
 Fixed::Fixed( const float num_float )
 {
 	this->fixedPointNum = std::roundf(num_float * (1 << this->fractionalBits));
+	// this->fixedPointNum = std::roundf(num_float * 256);
 	// std::cout << "Float constructor called\n";
 }
 
@@ -170,7 +172,7 @@ Fixed Fixed::operator++(int)
 Fixed Fixed::operator--(int)
 {
 	int i = this->toFloat();
-	setRawBits(this->getRawBits() + 1);
+	setRawBits(this->getRawBits() - 1);
 	return Fixed(i);
 }
 

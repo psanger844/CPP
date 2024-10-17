@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:17:33 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/12 18:17:53 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/17 21:13:24 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 Fixed::Fixed( void )
 {
-	std::cout << "Default constructor called\n";
 	this->fixedPointNum = 0;
+	std::cout << "Default constructor called\n";
 }
 
 

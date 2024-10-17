@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 20:06:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:32:05 by psanger          ###   ########.fr       */
+/*   Created: 2024/09/12 19:57:59 by psanger           #+#    #+#             */
+/*   Updated: 2024/09/12 21:33:50 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef __ANIMAL_H__
+#define __ANIMAL_H__
 
-Cat::Cat() : _sound("miau")
-{
-	std::cout << "Cat got created\n";
-	Animal::setType("Cat");
-}
+#pragma once
+#include <iostream>
 
-Cat::Cat(Cat &other) : _sound("miau")
+class Animal
 {
-	*this = other;
-}
+protected:
+	std::string type;
+public:
+	Animal();
+	Animal(Animal &other);
+	Animal operator=(Animal &other);
+	virtual ~Animal();
+	void	setType(std::string type);
+	std::string getType() const;
+	virtual void	makeSound() const;
+};
 
-Cat Cat::operator= (Cat &other)
-{
-	return (*this);
-}
-
-Cat::~Cat()
-{
-	std::cout << "Cat got destroyed\n";
-}
-
-void Cat::makeSound() const
-{
-	std::cout << this->_sound << std::endl;
-}
+#endif

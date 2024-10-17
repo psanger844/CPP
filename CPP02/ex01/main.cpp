@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:46:10 by psanger           #+#    #+#             */
-/*   Updated: 2024/08/12 19:23:48 by psanger          ###   ########.fr       */
+/*   Updated: 2024/09/18 22:14:59 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 int main( void )
 {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b( 10.1f );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
+	std::cout << "Test\n";
 	a = Fixed( 1234.4321f );
 
 	std::cout << "a is " << a << std::endl;
