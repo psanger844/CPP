@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 21:49:50 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:42:21 by psanger          ###   ########.fr       */
+/*   Updated: 2024/10/18 01:28:01 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	WrongAnimal operator=(WrongAnimal &other);
 	void	setType(std::string _type);
 	std::string getType() const;
-	virtual void	makeSound() const;
+	void	makeSound() const;
 };
 
 

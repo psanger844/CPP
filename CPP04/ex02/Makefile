@@ -1,6 +1,6 @@
 NAME		= abstract
 CXX			= c++
-# CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror
 
 SRCS		=	main.cpp \
 				Animal.cpp \
