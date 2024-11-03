@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:06:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/18 01:16:10 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/02 17:33:20 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 Cat::Cat() : _sound("miau")
 {
 	std::cout << "Cat got created\n";
-	Animal::setType("Cat");
+	// Animal::setType("Cat");
+	this->type = "Cat";
 }
 
 Cat::Cat(const Cat &other) : Animal(other), _sound(other._sound)

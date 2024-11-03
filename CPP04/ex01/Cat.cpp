@@ -6,38 +6,33 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:06:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/02 21:53:08 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:33:22 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : _sound("miau")
+Cat::Cat()
 {
 	std::cout << "Cat got created\n";
 	this->brain = new Brain;
-	Animal::setType("Cat");
+	this->type = "Cat";
 }
 
-Cat::Cat(Cat &other) : _sound(other._sound) {
-	if (other.brain != nullptr) {
-		this->brain = new Brain(*other.brain);
-	} else {
-		this->brain = nullptr;
-	}
-}
-
-Cat Cat::operator= (Cat &other)
+Cat::Cat(Cat &other): Animal(other)
 {
-	if (this == &other)
-		return (*this);
-	if (this->brain) {
-		delete this->brain;
-	}
-	if (other.brain)
+	std::cout << "Cat copy constructor called\n";
+	*this = other;
+}
+
+Cat & Cat::operator= (Cat &other)
+{
+	std::cout << "Cat assignation operator called\n";
+	if (this != &other)
+	{
+		this->type = other.type;
 		this->brain = new Brain(*other.brain);
-	else
-		this->brain = nullptr;
+	}
 	return (*this);
 }
 
@@ -49,15 +44,20 @@ Cat::~Cat()
 
 void Cat::makeSound() const
 {
-	std::cout << this->_sound << std::endl;
+	std::cout << "Miau\n";
 }
 
-void Cat::setCatsBrain(std::string info)
+void Cat::set_ideas(int start, int end, std::string input) const
 {
-	this->brain->setBrain(info);
+	while (start < end)
+	{
+		this->brain->set_idea(start, input);
+		start++;
+	}
 }
 
-std::string Cat::getCatsBrain(void)
+void Cat::printIdears() const
 {
-	return (this->brain->getBrain());
+	for (int i = 0; i < 100; i++)
+		std::cout << this->brain->get_idea(i) << std::endl;
 }

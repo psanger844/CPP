@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 21:58:55 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/02 21:53:36 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:12:37 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,34 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain got created\n";
-}
-
-Brain::~Brain()
-{
-	std::cout << "Brain got destroyed\n";
-}
-
-Brain::Brain(Brain &other) {
-	for (int i = 0; i < 100; ++i) {
-		_ideas[i] = other._ideas[i];
+	std::cout << "Brain default constructor called\n";
+	for (int i = 0; i < 100; i++) {
+		this->ideas[i] = "idea";
 	}
 }
 
-Brain Brain::operator=(Brain &other)
+Brain::Brain(const Brain &other)
 {
-	if (this != &other) {
-		for (size_t i = 0; i < 100; i++) {
-			this->_ideas[i] = other._ideas[i];
-		}
-	}
-	return (*this);
+	std::cout << "Brain copy constructor called\n";
+	*this = other;
 }
 
-void Brain::setBrain(std::string info)
-{
-	for (size_t i = 0; i < 100; i++)
-	{
-		this->_ideas[i] = info[i];
-	}
+Brain::~Brain() {
+	std::cout << "Brain destructor called\n";
 }
 
-std::string Brain::getBrain(void)
-{
-	return (this->_ideas[0]);
+Brain &Brain::operator=(const Brain &other) {
+	std::cout << "Brain assignation operator called\n";
+	for (int i = 0; i < 100; i++) {
+		this->ideas[i] = other.ideas[i];
+	}
+	return *this;
+}
+
+void	Brain::set_idea(int i, std::string input) {
+	this->ideas[i] = input;
+}
+
+std::string Brain::get_idea(int i) {
+	return (this->ideas[i]);
 }

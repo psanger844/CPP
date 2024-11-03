@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:14:03 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/17 23:02:54 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/02 17:30:07 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,27 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main()
+int	main()
 {
-	Animal* hund = new Dog();
-	Animal* katze = new Cat();
-
-	hund->makeSound();
-	katze->makeSound();
-
-	delete hund;
-	delete katze;
+	const Animal* cat = new Cat();
 
 
-	std::cout << "\n\n--------------------\n\n";
+	std::cout << cat->getType() << std::endl;
+	cat->makeSound();
+	// cat->set_ideas(0, 50, "HelloWorld");
+	// cat->printIdears();
+	delete cat;
 
-	// // this should give an error, cant initiate or create a Object of the Abstract class Animal
-	// Animal* tier = new Animal;
-	// Animal* hund = new Dog() -> Animal pointer can still be used, because this pointer points to the klass of the Dog
+	// std::cout << "\n---------------------\n" << std::endl;
 
+	// Dog basic;
+	// Dog tmp = basic;
+	// basic.makeSound();
+	// basic.set_ideas(0, 50, "HelloWorld");
+	// basic.printIdears();
+	// tmp.makeSound();
+	// tmp.printIdears();
+	// return 0;
 
-	// test Dog copie constructor
-	Dog* test = new Dog();
-	Dog* cp_test = new Dog(*test);
-
-	cp_test->makeSound();
-
-	delete test;
-	delete cp_test;
-	return 0;
+	// Animal test;
 }

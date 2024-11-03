@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:14:03 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/18 01:19:14 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:14:26 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	Animal* cat1 = new Cat();
 	cat1->makeSound();
 	Cat cat;
-	cat.setType("Katze");
+	cat.setType("l");
 	cat.makeSound();
 
 	std::cout << cat.getType() << std::endl << std::endl;
@@ -63,7 +63,7 @@ int main()
 	wrongCat->makeSound();
 
 	WrongAnimal*  wrongAnimal = new WrongCat();
-	std::cout << wrongAnimal->getType() << "test" << std::endl;
+	std::cout << wrongAnimal->getType() << " test" << std::endl;
 	wrongAnimal->makeSound();
 
 	std::cout << std::endl;

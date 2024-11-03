@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 19:57:59 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/12 21:33:50 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/02 17:00:50 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ protected:
 	std::string type;
 public:
 	Animal();
-	Animal(Animal &other);
-	Animal operator=(Animal &other);
+	Animal(Animal const &other);
+	Animal & operator=(Animal const &other);
 	virtual ~Animal();
+
+	virtual void printIdears() const;
+	virtual void set_ideas(int start, int end, std::string input) const;
+
 	void	setType(std::string type);
 	std::string getType() const;
 	virtual void	makeSound() const;

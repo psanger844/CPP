@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 21:52:19 by psanger           #+#    #+#             */
-/*   Updated: 2024/09/23 20:42:16 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/02 17:11:02 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "wrongAnimal got destroyed\n";
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal &other)
+WrongAnimal::WrongAnimal(const WrongAnimal &other) : _type(other._type)
 {
-	std::cout << "WrongAnimal copy constructor\n";
-	*this = other;
+	std::cout << "Copy constructor operator called\n";
 }
 
-WrongAnimal WrongAnimal::operator=(WrongAnimal &other)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
 {
-	std::cout << "WrongAnimal copy assignment operaor\n";
-	if (this != &other)
+	std::cout << "Copy assignment operator called\n";
+	if (this != &other) {
 		this->_type = other._type;
-	return (*this);
+	}
+	return *this;
 }
 
 void WrongAnimal::setType(std::string _type)

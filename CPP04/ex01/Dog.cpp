@@ -6,39 +6,35 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:39:45 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/02 21:58:05 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:33:13 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Dog.hpp"
 
-Dog::Dog() : _sound("bark")
+Dog::Dog()
 {
 	std::cout << "Dog got created\n";
 	this->brain = new Brain;
-	Animal::setType("Dog");
+	this->type = "Dog";
 }
 
-Dog::Dog(Dog &other) : _sound(other._sound) {
-	if (other.brain != nullptr) {
-		this->brain = new Brain(*other.brain);
-	} else {
-		this->brain = nullptr;
-	}
-}
-
-Dog Dog::operator= (Dog &other)
+Dog::Dog(Dog &other): Animal(other)
 {
-	if (this == &other)
-		return (*this);
-	if (this->brain) {
-		delete this->brain;
-	}
-	if (other.brain)
+	std::cout << "Dog copy constructor called\n";
+	*this = other;
+}
+
+Dog & Dog::operator= (Dog &other)
+{
+	std::cout << "Dog assignation operator called\n";
+	if (this != &other)
+	{
+		this->type = other.type;
 		this->brain = new Brain(*other.brain);
-	else
-		this->brain = nullptr;
-	return (*this);
+	}
+	return *this;
 }
 
 Dog::~Dog()
@@ -49,5 +45,20 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << this->_sound << std::endl;
+	std::cout << "Woof\n";
+}
+
+void Dog::set_ideas(int start, int end, std::string input) const
+{
+	while (start < end)
+	{
+		this->brain->set_idea(start, input);
+		start++;
+	}
+}
+
+void Dog::printIdears() const
+{
+	for (int i = 0; i < 100; i++)
+		std::cout << this->brain->get_idea(i) << std::endl;
 }

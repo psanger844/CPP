@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 21:02:12 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/01 22:19:43 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:13:34 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 #include <iostream>
 
-class Brain
-{
+class Brain {
 private:
-	std::string _ideas[100];
+	std::string ideas[100];
 public:
-	Brain(/* args */);
+	Brain();
+	Brain(const Brain &other);
 	~Brain();
-	Brain(Brain &other);
-	Brain operator=(Brain &other);
-	void setBrain(std::string info);
-	std::string getBrain( void );
+	Brain &operator=(const Brain &other);
+
+	std::string get_idea(int i);
+	void set_idea(int i, std::string input);
 };
 
-#endif // __BRAIN_H__
+#endif

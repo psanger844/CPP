@@ -6,7 +6,7 @@
 /*   By: psanger <psanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 20:14:03 by psanger           #+#    #+#             */
-/*   Updated: 2024/10/02 22:00:00 by psanger          ###   ########.fr       */
+/*   Updated: 2024/11/03 13:31:34 by psanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,39 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main()
+int	main()
 {
-	Cat jan;
-	jan.setCatsBrain("TEST");
-	std::cout << jan.getCatsBrain() << std::endl << std::endl;
-	Cat j;
-	j = jan;
-	Cat i(jan);
-	std::cout << std::endl << std::endl;
-
-	std::cout << jan.getCatsBrain() << std::endl;
-	std::cout << i.getCatsBrain() << std::endl;
-	std::cout << j.getCatsBrain() << std::endl;
+	const Animal* cat = new Cat();
 
 
-	jan.setCatsBrain("11");
-	i.setCatsBrain("22");
-	j.setCatsBrain("33");
+	std::cout << cat->getType() << std::endl;
+	cat->makeSound();
+	cat->set_ideas(0, 50, "HelloWorld");
+	cat->printIdears();
+	delete cat;
 
-	std::cout << jan.getCatsBrain() << std::endl;
-	std::cout << i.getCatsBrain() << std::endl;
-	std::cout << j.getCatsBrain() << std::endl;
+	std::cout << "\n---------------------\n" << std::endl;
 
-	std::cout << std::endl << std::endl;
+	Dog basic;
+	Dog tmp;
 
-	Dog test;
-	Dog hallo(test);
-	Dog grr = hallo;
+	std::cout << "\n\n\n";
 
-	
+	basic = tmp;
+	basic.makeSound();
+	basic.set_ideas(0, 50, "HelloWorld");
+	basic.printIdears();
+	std::cout << "\n---------------------\n" << std::endl;
+	tmp.makeSound();
+	tmp.printIdears();
 
-	std::cout << std::endl << std::endl;
+	// const Dog* test = new Dog(basic);
+	// test->printIdears();
+	// test->set_ideas(0, 60, "Hallo");
+	// test->printIdears();
+	// basic.printIdears();
+	// delete test;
+
 	return 0;
+
 }
